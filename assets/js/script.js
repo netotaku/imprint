@@ -27,7 +27,7 @@ function setEntries(){
     return strftime(a.publishedDate) > strftime(b.publishedDate) ? -1 : 1;
   });
 
-  console.log(entries);
+  // console.log(entries);
 
 }
 
