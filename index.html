@@ -10,27 +10,71 @@
   </head>
   <body>
 
-    <header>
-      <a href="#"><img src="http://kickstart.bikeexif.com/wp-content/themes/bikeexif/images/random/bike_exif_logo_5b.jpg"></a>
-    </header>
-    <div id="app">
-      <div class="loading">Loading ...</div>
+    <div class="ocn"></div>
+
+    <div class="canvas">
+      <header>
+        <h1>IMPRINT</h1>
+      </header>
+      <div id="app" role="main"><div class="loading">Loading <span></span></div></div>
+      <footer></footer>
     </div>
 
-    <script type="text/template" id="list">
+    <script type="text/template" id="feeds">
+      <article>
+        <ul>
+          <% $.each(feeds, function(){ %>
+            <li>
+              <a href="#/<%=this.slug%>" class="nav"><%=this.data.feed.title%></a>
+            </li>
+          <% }); %>
+        </ul>
+      </article>
+    </script>
+
+    <script type="text/template" id="default">
       <div class="list">
-       <% $.each(items, function(){ %>
+        <% $.each(entries, function(){ %>
+          <article>
+            <h1><%=this.title%></h1>
+            <p class="date-time">Posted by <%=this.author%> on <time><%=this.publishedDate%></time></p>
+            <p><%=this.contentSnippet%></p>
+            <p><a href="#/<%=this.imFeed.slug%>" class="nav"><%=this.imFeed.data.feed.title%></a> | <a href="<%=this.imUrl%>" class="nav">Read more ...</a></p>
+          </article>
+        <% }) %>
+      </div>
+    </script>
+
+    <script type="text/template" id="list">
+      <nav class="breadcrumbs">
+        <a href="#" class="nav">Home</a> /
+        <%=feed.data.feed.title%>
+      </nav>
+      <div class="feed">
+        <h1><%=feed.data.feed.title%></h1>
+        <p>
+          <%=feed.data.feed.description%><br>
+          <a href="<%=feed.data.feed.link%>" target="_blank"><%=feed.data.feed.link%></a>
+        </p>
+      </div>
+      <div class="list">
+       <% $.each(feed.data.feed.entries, function(){ %>
          <article>
            <h1><%=this.title%></h1>
            <p class="date-time">Posted by <%=this.author%> on <time><%=this.publishedDate%></time></p>
            <p><%=this.contentSnippet%></p>
-           <p><a href="#/post<%=link(this.link)%>" class="more">Read more ...</a></p>
+           <p><a href="#/<%=feed.slug%><%=link(this)%>" class="nav">Read more ...</a></p>
          </article>
        <% }) %>
       </div>
     </script>
 
     <script type="text/template" id="post">
+      <nav class="breadcrumbs">
+        <a href="#" class="nav">Home</a> /
+        <a href="#/<%=feed.slug%>" class="nav"><%=feed.data.feed.title%></a> /
+        <%=post.title%>
+      </nav>
       <article>
        <h1><%=post.title%></h1>
        <p class="date-time">Posted by <%=post.author%> on <time><%=post.publishedDate%></time></p>
@@ -38,11 +82,20 @@
       </article>
     </script>
 
+    <script type="text/template" id="no-post">
+      <article>
+       <h1>Sorry</h1>
+       <p>This post is nowhere to be found.</p>
+       <p><a href="#">Home</a></p>
+      </article>
+    </script>
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="lib/strtotime.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
+
   </body>
 </html>
