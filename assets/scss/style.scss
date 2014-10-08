@@ -1,0 +1,40 @@
+body{
+  line-height: 1.75;
+  padding: 14px;
+  color: #222;
+  font-family: 'Merriweather', serif;
+}
+img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.loading{
+  text-align: center;
+}
+.date-time{
+  color: #ccc;
+  font-style: italic;
+}
+h1{
+  margin-bottom: 0px;
+}
+h1 + p{
+  margin-top: 0px;
+}
+a{
+  color: #D00B0B;
+}
+a:hover{
+  text-decoration: none;
+}
+.list article{
+  border-bottom: solid 1px #ccc;
+}
+header img{
+  width: auto;
+  max-width: 100%;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Lato', sans-serif;
+}

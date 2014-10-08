@@ -5,49 +5,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
-    <link href='http://fonts.googleapis.com/css?family=Lato|Merriweather' rel='stylesheet' type='text/css'>
-    <style>
-      body{
-        line-height: 1.75;
-        padding: 14px;
-        color: #222;
-        font-family: 'Merriweather', serif;
-      }
-      img{
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .loading{
-        text-align: center;
-      }
-      .date-time{
-        color: #ccc;
-        font-style: italic;
-      }
-      h1{
-        margin-bottom: 0px;
-      }
-      h1 + p{
-        margin-top: 0px;
-      }
-      a{
-        color: #D00B0B;
-      }
-      a:hover{
-        text-decoration: none;
-      }
-      .list article{
-        border-bottom: solid 1px #ccc;
-      }
-      header img{
-        width: auto;
-        max-width: 100%;
-      }
-      h1,h2,h3,h4,h5,h6{
-        font-family: 'Lato', sans-serif;
-      }
-    </style>
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Lato|Merriweather' />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
 
@@ -84,71 +43,6 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-
-      var feedData = false;
-
-      function link(url){
-        var parser = document.createElement('a');
-        parser.href = url;
-        return parser.pathname.replace('bikeexif/','');;
-      }
-
-      function feed(then){
-        if(!feedData){
-          google.load("feeds", "1");
-          google.setOnLoadCallback(function(){
-            var feed = new google.feeds.Feed("http://www.bikeexif.com/feed");
-            feed.setNumEntries(100);
-            feed.load(function(result) {
-              if (!result.error) {
-                feedData = result;
-                then(feedData);
-              }
-            });
-          });
-        } else {
-          then(feedData);
-        }
-      }
-
-      var AppRouter = Backbone.Router.extend({
-        routes: {
-          "post/:id": "post",
-          "*actions": "default"
-        }
-      });
-
-      var router = new AppRouter;
-
-      router.on('route:default', function(actions) {
-        feed(function(data){
-          var t = _.template($("#list").html());
-          $("#app").html(t({items:data.feed.entries}));
-        });
-      })
-
-      router.on('route:post', function(id){
-        feed(function(data){
-          $.each(data.feed.entries, function(){
-            if(link(this.link) == link(id)){
-              var t = _.template($("#post").html());
-              $("#app").html(t({post:this}));
-            }
-          })
-        });
-      });
-
-      Backbone.history.start();
-
-      $('#app').on('click', function(e){
-        $target = $(e.target);
-        if($target.hasClass('more')){
-          window.scrollTo(0,0);
-          router.navigate($target.attr('href'), { trigger: true });
-        }
-      });
-
-    </script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
   </body>
 </html>

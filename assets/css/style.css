@@ -1,0 +1,61 @@
+/* line 1, ../scss/style.scss */
+body {
+  line-height: 1.75;
+  padding: 14px;
+  color: #222;
+  font-family: 'Merriweather', serif;
+}
+
+/* line 7, ../scss/style.scss */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* line 12, ../scss/style.scss */
+.loading {
+  text-align: center;
+}
+
+/* line 15, ../scss/style.scss */
+.date-time {
+  color: #ccc;
+  font-style: italic;
+}
+
+/* line 19, ../scss/style.scss */
+h1 {
+  margin-bottom: 0px;
+}
+
+/* line 22, ../scss/style.scss */
+h1 + p {
+  margin-top: 0px;
+}
+
+/* line 25, ../scss/style.scss */
+a {
+  color: #D00B0B;
+}
+
+/* line 28, ../scss/style.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 31, ../scss/style.scss */
+.list article {
+  border-bottom: solid 1px #ccc;
+}
+
+/* line 34, ../scss/style.scss */
+header img {
+  width: auto;
+  max-width: 100%;
+}
+
+/* line 38, ../scss/style.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
