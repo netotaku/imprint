@@ -7,7 +7,8 @@
 var feeds = [
  { url: 'http://dailydead.com/feed', slug: 'daily-dead' },
  { url: 'http://www.bikeexif.com/feed', slug: 'bike-exif' },
- { url: 'http://feeds.feedburner.com/edgarwrightherefeed', slug: 'edgar-wright-here' }
+ { url: 'http://feeds.feedburner.com/edgarwrightherefeed', slug: 'edgar-wright-here' },
+ { url: 'http://www.newstatesman.com/feeds_allsite/site_feed.php', slug: 'newstatesman' }
 ];
 
 var entries = [];
@@ -74,7 +75,8 @@ var dispatcher = (function(){
 google.load("feeds", "1");
 
 function link(item){
-  var guid = $('guid', item.xmlNode).html();
+  console.log(item.xmlNode);
+  var guid = $('guid', item.xmlNode).text();
   $.each(["\\/","http:","\\.","\\?","=","-","www"], function(){
     var r = new RegExp(this, 'g');
     guid = guid.replace(r, '');
