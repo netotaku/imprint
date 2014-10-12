@@ -1,89 +1,322 @@
-/* line 1, ../scss/style.scss */
-body {
-  line-height: 1.75;
-  padding: 0px;
-  margin: 0px;
-  color: #222;
-  font-family: 'Merriweather', serif;
+/* line 17, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 
-/* line 8, ../scss/style.scss */
-img {
+/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../scss/_type.scss */
+html {
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  line-height: 1.75;
+  background: #111;
+}
+
+/* line 17, ../scss/_type.scss */
+.type h1 {
+  font-size: 1.8em;
+  line-height: 1.4;
+}
+/* line 21, ../scss/_type.scss */
+.type h1, .type h2, .type h3, .type h4, .type h5, .type h6 {
+  padding-top: 20px;
+  font-family: 'Lato', sans-serif;
+}
+/* line 25, ../scss/_type.scss */
+.type p {
+  padding-top: 20px;
+}
+/* line 28, ../scss/_type.scss */
+.type br {
+  display: none;
+}
+/* line 31, ../scss/_type.scss */
+.type img {
   width: 100%;
   height: auto;
   display: block;
   margin-bottom: 20px;
 }
 
-/* line 14, ../scss/style.scss */
-.loading {
-  text-align: center;
+/* line 39, ../scss/_type.scss */
+strong {
+  font-weight: bold;
 }
 
-/* line 17, ../scss/style.scss */
+/* line 42, ../scss/_type.scss */
+em {
+  font-style: italic;
+}
+
+/* line 1, ../scss/_ocn.scss */
+.ocn {
+  position: fixed;
+  right: 0px;
+  width: 280px;
+}
+/* line 6, ../scss/_ocn.scss */
+.ocn ul li {
+  margin-bottom: 1px;
+}
+/* line 8, ../scss/_ocn.scss */
+.ocn ul li a {
+  display: block;
+  padding: 8px 14px;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+}
+/* line 16, ../scss/_ocn.scss */
+.ocn ul li a:hover {
+  background: #333;
+}
+
+/* line 26, ../scss/_ocn.scss */
+.open .canvas {
+  margin-left: -280px;
+  width: 100%;
+}
+
+/* line 1, ../scss/_loading.scss */
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  display: table;
+}
+/* line 14, ../scss/_loading.scss */
+.loading .dialogue {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* line 1, ../scss/_canvas.scss */
+.canvas {
+  position: relative;
+  z-index: 1;
+}
+
+/* line 1, ../scss/_brand.scss */
+.brand {
+  font-size: 2em;
+  font-family: 'Courgette', cursive;
+}
+
+/* line 1, ../scss/_list.scss */
+.list-header {
+  background: #666;
+  color: #fff;
+  padding: 8px 14px;
+}
+/* line 5, ../scss/_list.scss */
+.list-header h1 {
+  font-weight: bold;
+}
+/* line 8, ../scss/_list.scss */
+.list-header a {
+  color: #fff;
+  font-size: 1.4em;
+}
+
+/* line 14, ../scss/_list.scss */
+.list article {
+  border-bottom: solid 3px #eee;
+  padding-bottom: 20px;
+}
+
+/* line 1, ../scss/_footer.scss */
+footer {
+  display: block;
+  background: #333;
+  padding: 8px 14px;
+  color: #fff;
+}
+/* line 6, ../scss/_footer.scss */
+footer a {
+  color: #fff;
+}
+
+/* line 1, ../scss/_pagination.scss */
+.pagination {
+  display: block;
+  padding: 14px;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 5, ../scss/_pagination.scss */
+.pagination li {
+  float: left;
+  width: 30px;
+  cursor: pointer;
+  line-height: 30px;
+  height: 30px;
+  position: relative;
+  overflow: hidden;
+  background: #f5f5f5;
+  text-align: center;
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+/* line 17, ../scss/_pagination.scss */
+.pagination li.active, .pagination li:hover {
+  background: #cc0000;
+}
+/* line 19, ../scss/_pagination.scss */
+.pagination li.active a, .pagination li:hover a {
+  color: #fff;
+}
+/* line 23, ../scss/_pagination.scss */
+.pagination li a {
+  text-decoration: none;
+}
+
+/* line 15, ../scss/style.scss */
+[role=main] {
+  background: #fff;
+}
+
+/* line 19, ../scss/style.scss */
+body {
+  padding: 0px;
+  margin: 0px;
+  color: #222;
+  font-family: 'Merriweather', serif;
+}
+
+/* line 27, ../scss/style.scss */
 .date-time {
   color: #ccc;
   font-style: italic;
 }
 
-/* line 21, ../scss/style.scss */
+/* line 31, ../scss/style.scss */
 h1 {
   margin-bottom: 0px;
 }
 
-/* line 24, ../scss/style.scss */
+/* line 34, ../scss/style.scss */
 h1 + p {
   margin-top: 0px;
 }
 
-/* line 27, ../scss/style.scss */
+/* line 39, ../scss/style.scss */
 a {
-  color: #D00B0B;
+  color: #cc0000;
 }
-
-/* line 30, ../scss/style.scss */
+/* line 41, ../scss/style.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 33, ../scss/style.scss */
-.list article {
-  border-bottom: solid 3px #eee;
-}
-
-/* line 36, ../scss/style.scss */
-header img {
-  width: auto;
-  max-width: 100%;
-}
-
-/* line 40, ../scss/style.scss */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', sans-serif;
-}
-
-/* line 44, ../scss/style.scss */
+/* line 48, ../scss/style.scss */
 article {
   padding: 0px 14px;
 }
 
-/* line 48, ../scss/style.scss */
+/* line 52, ../scss/style.scss */
 header {
-  padding: 8px 14px;
+  padding: 0px 14px;
   color: #fff;
   background: #333;
+  position: relative;
+  line-height: 56px;
 }
-/* line 52, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
+header nav {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding-right: 14px;
+  cursor: pointer;
+}
+/* line 65, ../scss/style.scss */
 header h1 {
-  margin: 0px;
-  padding: 0px;
+  height: 56px;
 }
-/* line 55, ../scss/style.scss */
+/* line 67, ../scss/style.scss */
 header h1 a {
   color: #fff;
+  text-decoration: none;
 }
 
-/* line 61, ../scss/style.scss */
+/* line 74, ../scss/style.scss */
 .breadcrumbs {
   background: #f5f5f5;
   color: #ccc;
@@ -91,13 +324,7 @@ header h1 a {
   border-bottom: solid 3px #eee;
 }
 
-/* line 68, ../scss/style.scss */
-.feed {
-  font-size: 1.4em;
-  padding: 8px 14px;
-  border-bottom: solid 3px #eee;
-}
-/* line 73, ../scss/style.scss */
-.feed h1 {
-  margin-top: 0px;
+/* line 81, ../scss/style.scss */
+.ctas {
+  color: #ccc;
 }

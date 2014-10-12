@@ -1,0 +1,20 @@
+{
+  "name": "imprint",
+  "version": "0.0.0",
+  "homepage": "https://github.com/netotaku/imprint",
+  "authors": [
+    "Nick Clarkson <nikclarkson@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "PubSubJS": "https://github.com/mroderick/PubSubJS.git#~1.5.0"
+  }
+}

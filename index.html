@@ -5,20 +5,42 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Lato|Merriweather' />
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Lato|Merriweather|Courgette' />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
 
-    <div class="ocn"></div>
+    <div id="ocn" class="ocn">
+      <nav></nav>
+    </div>
 
     <div class="canvas">
       <header>
-        <h1>IMPRINT</h1>
+        <h1><a href="#" class="nav brand">Imprint</a></h1>
+        <nav>
+          <span class="burger">Sources <i class="fa fa-bars"></i></a>
+        </nav>
       </header>
-      <div id="app" role="main"><div class="loading">Loading <span></span></div></div>
-      <footer></footer>
+      <div id="app" role="main"></div>
+      <footer>
+        <p>Get one of these <a href="https://github.com/netotaku/imprint">fork on github</a></p>
+      </footer>
     </div>
+
+    <div class="loading">
+      <div class="dialogue">
+        <div class="brand">Imprint</div>
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <script type="text/template" id="feed-menu">
+      <ul>
+        <% $.each(feeds, function(){ %>
+          <li><a href="#/<%=this.slug%>" class="nav close"><%=this.data.feed.title%></a></li>
+        <% }); %>
+      </ul>
+    </script>
 
     <script type="text/template" id="feeds">
       <article>
@@ -33,13 +55,15 @@
     </script>
 
     <script type="text/template" id="default">
-      <div class="list">
+      <div class="list paginate">
         <% $.each(entries, function(){ %>
           <article>
-            <h1><%=this.title%></h1>
+            <div class="type">
+              <h1><%=this.title%></h1>
+            </div>
             <p class="date-time">Posted by <%=this.author%> on <time><%=this.publishedDate%></time></p>
             <p><%=this.contentSnippet%></p>
-            <p><a href="#/<%=this.imFeed.slug%>" class="nav"><%=this.imFeed.data.feed.title%></a> | <a href="<%=this.imUrl%>" class="nav">Read more ...</a></p>
+            <p class="ctas"><a href="#/<%=this.imFeed.slug%>" class="nav"><%=this.imFeed.data.feed.title%></a> | <a href="<%=this.imUrl%>" class="nav">Read more ...</a></p>
           </article>
         <% }) %>
       </div>
@@ -50,22 +74,25 @@
         <a href="#" class="nav">Home</a> /
         <%=feed.data.feed.title%>
       </nav>
-      <div class="feed">
-        <h1><%=feed.data.feed.title%></h1>
-        <p>
-          <%=feed.data.feed.description%><br>
-          <a href="<%=feed.data.feed.link%>" target="_blank"><%=feed.data.feed.link%></a>
-        </p>
-      </div>
-      <div class="list">
+      <div class="list paginate">
        <% $.each(feed.data.feed.entries, function(){ %>
          <article>
-           <h1><%=this.title%></h1>
+           <div class="type">
+             <h1><%=this.title%></h1>
+           </div>
            <p class="date-time">Posted by <%=this.author%> on <time><%=this.publishedDate%></time></p>
            <p><%=this.contentSnippet%></p>
-           <p><a href="#/<%=feed.slug%><%=link(this)%>" class="nav">Read more ...</a></p>
+           <p class="ctas"><a href="#/<%=feed.slug%><%=helper.guid(this)%>" class="nav">Read more ...</a></p>
          </article>
        <% }) %>
+      </div>
+      <div class="list-header">
+        <p><i class="fa fa-newspaper-o"></i> <strong><%=feed.data.feed.title%></strong></p>
+        <p>
+          <%=feed.data.feed.description%><br>
+          <a href="<%=feed.data.feed.link%>" target="_blank"><i class="fa fa-external-link-square"></i></a>
+          <a href="<%=feed.url%>" target="_blank"><i class="fa fa-rss-square"></i></a>
+        </p>
       </div>
     </script>
 
@@ -75,7 +102,7 @@
         <a href="#/<%=feed.slug%>" class="nav"><%=feed.data.feed.title%></a> /
         <%=post.title%>
       </nav>
-      <article>
+      <article class="type">
        <h1><%=post.title%></h1>
        <p class="date-time">Posted by <%=post.author%> on <time><%=post.publishedDate%></time></p>
        <div role="main"><%=post.content%></div>
@@ -90,11 +117,38 @@
       </article>
     </script>
 
+    <script type="text/template" id="paginator">
+      <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+          <% for(var i = 1; i <= pages; i++) { %>
+            <% if(i==cursor) { %>
+              <li class="active"><a href="#"><%=i%></a></li>
+            <% } else { %>
+              <li><a href="#"><%=i%></a></li>
+            <% } %>
+          <% } %>
+        <li><a href="#">&raquo;</a></li>
+      </ul>
+    </script>
+
+    <script type="text/javascript" src="assets/lib/PubSubJS/src/pubsub.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="lib/strtotime.js"></script>
+
+    <script type="text/javascript">
+
+      var feeds = [
+       { url: 'http://dailydead.com/feed', slug: 'daily-dead' },
+       { url: 'http://www.bikeexif.com/feed', slug: 'bike-exif' },
+       { url: 'http://feeds.feedburner.com/edgarwrightherefeed', slug: 'edgar-wright-here' },
+       { url: 'http://www.newstatesman.com/feeds_allsite/site_feed.php', slug: 'newstatesman' } //,
+       // { url: 'http://feeds.feedburner.com/Vodzilla', slug: 'vodzilla' }
+      ];
+
+    </script>
+
     <script type="text/javascript" src="assets/js/script.js"></script>
 
   </body>

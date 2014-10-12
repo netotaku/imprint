@@ -1,0 +1,17 @@
+.list-header{
+  background: #666;
+  color: #fff;
+  padding: 8px 14px;
+  h1{
+    font-weight: bold;
+  }
+  a{
+    color:#fff;
+    font-size: 1.4em;
+  }
+}
+
+.list article{
+  border-bottom: solid 3px #eee;
+  padding-bottom: 20px;
+}

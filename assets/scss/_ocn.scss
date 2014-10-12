@@ -1,0 +1,30 @@
+.ocn{
+  position: fixed;
+  right: 0px;
+  width: 280px;
+  ul{
+    li{
+      margin-bottom: 1px;
+      a{
+        display: block;
+        padding: 8px 14px;
+        // border-top: solid 1px #555;
+        // border-bottom: solid 1px #111;
+        background: #222;
+        color: #fff;
+        text-decoration: none;
+        &:hover{
+          background: #333;
+        }
+      }
+    }
+  }
+}
+
+
+.open{
+  .canvas{
+    margin-left: -280px;
+    width: 100%;
+  }
+}
