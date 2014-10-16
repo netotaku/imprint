@@ -11,8 +11,14 @@ $link: #c00;
 @import "list";
 @import "footer";
 @import "pagination";
+@import "more";
 
 [role=main]{
+  background: #fff;
+  padding-bottom: 20px;
+}
+
+#app{
   background: #fff;
 }
 

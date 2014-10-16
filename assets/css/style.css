@@ -79,29 +79,29 @@ html {
   background: #111;
 }
 
-/* line 16, ../scss/_type.scss */
-.type {
-  padding-bottom: 20px;
-}
-/* line 18, ../scss/_type.scss */
+/* line 17, ../scss/_type.scss */
 .type h1 {
   font-size: 1.8em;
   line-height: 1.4;
 }
-/* line 22, ../scss/_type.scss */
+/* line 21, ../scss/_type.scss */
 .type h1, .type h2, .type h3, .type h4, .type h5, .type h6 {
   padding-top: 20px;
   font-family: 'Lato', sans-serif;
 }
-/* line 26, ../scss/_type.scss */
+/* line 25, ../scss/_type.scss */
+.type h1 + p {
+  padding-top: 0px;
+}
+/* line 28, ../scss/_type.scss */
 .type p {
   padding-top: 20px;
 }
-/* line 29, ../scss/_type.scss */
+/* line 31, ../scss/_type.scss */
 .type br {
   display: none;
 }
-/* line 32, ../scss/_type.scss */
+/* line 34, ../scss/_type.scss */
 .type img {
   width: 100%;
   height: auto;
@@ -109,12 +109,12 @@ html {
   margin-bottom: 20px;
 }
 
-/* line 40, ../scss/_type.scss */
+/* line 42, ../scss/_type.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 43, ../scss/_type.scss */
+/* line 45, ../scss/_type.scss */
 em {
   font-style: italic;
 }
@@ -210,11 +210,13 @@ footer {
   display: block;
   background: #333;
   padding: 8px 14px;
-  color: #fff;
+  color: #ccc;
+  text-align: center;
+  font-size: .9em;
 }
-/* line 6, ../scss/_footer.scss */
+/* line 8, ../scss/_footer.scss */
 footer a {
-  color: #fff;
+  color: #ccc;
 }
 
 /* line 1, ../scss/_pagination.scss */
@@ -251,12 +253,35 @@ footer a {
   text-decoration: none;
 }
 
-/* line 15, ../scss/style.scss */
+/* line 1, ../scss/_more.scss */
+.more {
+  padding: 14px;
+  padding-bottom: 7px;
+  background: #f5f5f5;
+  border-top: solid 3px #eee;
+}
+/* line 6, ../scss/_more.scss */
+.more h3 {
+  padding-bottom: 7px;
+  font-weight: bold;
+}
+/* line 11, ../scss/_more.scss */
+.more ul li {
+  padding-bottom: 7px;
+}
+
+/* line 16, ../scss/style.scss */
 [role=main] {
+  background: #fff;
+  padding-bottom: 20px;
+}
+
+/* line 21, ../scss/style.scss */
+#app {
   background: #fff;
 }
 
-/* line 19, ../scss/style.scss */
+/* line 25, ../scss/style.scss */
 body {
   padding: 0px;
   margin: 0px;
@@ -264,37 +289,37 @@ body {
   font-family: 'Merriweather', serif;
 }
 
-/* line 27, ../scss/style.scss */
+/* line 33, ../scss/style.scss */
 .date-time {
   color: #ccc;
   font-style: italic;
 }
 
-/* line 31, ../scss/style.scss */
+/* line 37, ../scss/style.scss */
 h1 {
   margin-bottom: 0px;
 }
 
-/* line 34, ../scss/style.scss */
+/* line 40, ../scss/style.scss */
 h1 + p {
   margin-top: 0px;
 }
 
-/* line 39, ../scss/style.scss */
+/* line 45, ../scss/style.scss */
 a {
   color: #c00;
 }
-/* line 41, ../scss/style.scss */
+/* line 47, ../scss/style.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 48, ../scss/style.scss */
+/* line 54, ../scss/style.scss */
 article {
   padding: 0px 14px;
 }
 
-/* line 52, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
 header {
   padding: 0px 14px;
   color: #fff;
@@ -302,7 +327,7 @@ header {
   position: relative;
   line-height: 56px;
 }
-/* line 58, ../scss/style.scss */
+/* line 64, ../scss/style.scss */
 header nav {
   position: absolute;
   right: 0px;
@@ -310,17 +335,17 @@ header nav {
   padding-right: 14px;
   cursor: pointer;
 }
-/* line 65, ../scss/style.scss */
+/* line 71, ../scss/style.scss */
 header h1 {
   height: 56px;
 }
-/* line 67, ../scss/style.scss */
+/* line 73, ../scss/style.scss */
 header h1 a {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 74, ../scss/style.scss */
+/* line 80, ../scss/style.scss */
 .breadcrumbs {
   background: #f5f5f5;
   color: #ccc;
@@ -328,7 +353,7 @@ header h1 a {
   border-bottom: solid 3px #eee;
 }
 
-/* line 81, ../scss/style.scss */
+/* line 87, ../scss/style.scss */
 .ctas {
   color: #ccc;
 }

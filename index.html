@@ -21,9 +21,9 @@
           <span class="burger">Sources <i class="fa fa-bars"></i></a>
         </nav>
       </header>
-      <div id="app" role="main"></div>
+      <div id="app"></div>
       <footer>
-        <p>Get one of these <a href="https://github.com/netotaku/imprint">fork on github</a></p>
+        <p><a href="https://github.com/netotaku/imprint">Make your own imprint</a></p>
       </footer>
     </div>
 
@@ -107,6 +107,29 @@
        <p class="date-time">Posted by <%=post.author%> on <time><%=post.publishedDate%></time></p>
        <div role="main"><%=post.content%></div>
       </article>
+      <section class="more">
+        <h3>More from <%=feed.data.feed.title%></h3>
+        <ul>
+          <% if(next) { %>
+            <li>
+              <a href="#/<%=feed.slug%><%=helper.guid(next)%>" class="nav">
+                <%=next.title%>
+              </a>
+              <br>
+              <%=next.contentSnippet%>
+            </li>
+          <% } %>
+          <% if(prev) { %>
+            <li>
+              <a href="#/<%=feed.slug%><%=helper.guid(prev)%>" class="nav">
+                <%=prev.title%>
+              </a>
+              <br>
+              <%=prev.contentSnippet%>
+            </li>
+          <% } %>
+        </ul>
+      </section>
     </script>
 
     <script type="text/template" id="no-post">
@@ -142,7 +165,7 @@
       var feeds = [
        { url: 'http://dailydead.com/feed', slug: 'daily-dead' },
        { url: 'http://www.bikeexif.com/feed', slug: 'bike-exif' },
-       { url: 'http://feeds.feedburner.com/edgarwrightherefeed', slug: 'edgar-wright-here' },
+       { url: 'http://www.theguardian.com/uk/rss', slug: 'guardian-news-uk' },
        { url: 'http://www.newstatesman.com/feeds_allsite/site_feed.php', slug: 'newstatesman' } //,
        // { url: 'http://feeds.feedburner.com/Vodzilla', slug: 'vodzilla' }
       ];

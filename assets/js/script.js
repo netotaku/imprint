@@ -36,22 +36,26 @@ var helper = (function(){
 
     postBySlugPost: function(slug, post, feeds){
 
-      var feed = helper.feedBySlug(slug, feeds), o = false;
+      var feed = helper.feedBySlug(slug, feeds),
+          o = false,
+          entries = feed.data.feed.entries;
 
-      $.each(feed.data.feed.entries, function(){
 
-        var guid = helper.guid(this);
-
+      for(var i=0; i < entries.length; i++){
+        var entry = entries[i], guid = helper.guid(entry);
         if(guid == '/'+post){
-          o = this;
-          return true;
+          prev = entries[i-1];
+          next = entries[i+1];
+          o = entry;
         }
 
-      });
+      }
 
       return {
         feed: feed,
-        post: o
+        post: o,
+        next: next ? next : false,
+        prev: prev ? prev : false
       };
 
     }
@@ -236,6 +240,7 @@ router.on('route:post', function(slug, post){
   var view = function(data){
     var t = _.template($("#post").html()),
         p = helper.postBySlugPost(slug, post, data);
+        console.log(p);
     if(p){
       $('#app').html(t(p));
       helper.title('Post');
@@ -290,6 +295,7 @@ var paginator = function($el){
       totalPages = Math.ceil( $lis.length / lisPerPage ),
       turn = function(i){
         if(i < totalPages && i > -1){
+          window.scrollTo(0,0);
           cursor = i;
           var start = cursor*lisPerPage,
               end = start+lisPerPage;
