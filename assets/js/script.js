@@ -240,7 +240,6 @@ router.on('route:post', function(slug, post){
   var view = function(data){
     var t = _.template($("#post").html()),
         p = helper.postBySlugPost(slug, post, data);
-        console.log(p);
     if(p){
       $('#app').html(t(p));
       helper.title('Post');
